@@ -1,0 +1,151 @@
+@import "variables";
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $main-color;
+    font-family: sans-serif;
+    font-size: calc(14px + (16 - 14) * ((100vw - 450px) / (1920 - 450)));
+    color: white;
+
+    > div:first-of-type {
+
+        display: flex;
+        justify-content: flex-start;
+        margin: 50px auto;
+        width: 90%;
+
+    }
+
+
+   > div:nth-of-type(2) {
+        display: grid;
+        width: 90%;
+        margin: 0 auto;
+        
+
+        grid: {
+            template-columns: repeat(5, 200px);
+            auto-rows: 200px;
+        }
+
+        justify-content: space-between;
+        justify-items: center;
+
+        row-gap: 50px;
+        column-gap: 20px;
+
+
+        div {
+            background: {
+                image: $placeholder;
+                color: #6ba2d9;
+                repeat: no-repeat;
+                position: center calc(50% - 20px);
+                size: contain;
+                
+            };
+
+            border: {
+                radius: 10px; 
+            };
+
+            height: 100%;
+            width: 200px;
+
+            position: relative;
+
+            &::after {
+                content: 'Image Title';
+                color: #5c5d5e;
+                text-align: center;
+                font-weight: 600;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                border-radius: 0 0 10px 10px;
+                background-color: white;
+                height: 30px;
+                width: 100%;
+                padding: 5px;
+                box-sizing: border-box;
+
+            }
+        }
+    }
+
+    p {
+        width: 90%;
+        margin: 50px auto;
+    }
+}
+
+@media screen and (max-width: $desktop) {
+
+
+    body > div:nth-of-type(2) {
+        grid: {
+            template-columns: repeat(3, 200px);
+        }
+    }
+}
+
+@media screen and (max-width: $tablet) {
+
+    body > div:first-of-type {
+        width: 70%;
+    }
+
+    body > div:nth-of-type(2) {
+        grid: {
+            template-columns: repeat(2, 200px);
+        }
+
+        width: 70%;
+    }
+
+    body > p {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 620px) {
+
+    body > div:first-of-type {
+        width: 90%;
+    }
+
+    body > div:nth-of-type(2) {
+
+        width: 90%;
+    }
+
+    body > p {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: $mobile) {
+
+    body > div:first-of-type {
+        justify-content: center;
+    }
+
+    body > div:nth-of-type(2) {
+        
+        grid: {
+            template-columns: repeat(1, 200px);
+        }
+
+        justify-content: space-around;
+        font-size: 14px;
+    }
+
+    @media screen and (min-width: 1920px) {
+
+        body {
+            font-size: 16px;
+        }
+        
+    }
+}
